@@ -1,49 +1,50 @@
-.luna {
-  position: absolute;
-  width: 67px;
-  height: 67px;
-  background: #ffef00;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px 0 #ffef00;
-  position: absolute;
-  overflow: hidden;
-  left: 60px;
-  animation: luna 1s forwards ease-in-out;
-}
-@keyframes luna {
-  0% {
-      transform: translateY(200px);
-  }
-
-  100% {
-      transform: translateY(50px);
-  }
-}
-
 .contenedor{
-  position: relative;
   display: flex;
-  justify-content: right;
-  background-color: #f0886d;
-  width: 600px;
-  height: 250px;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+  height: 100vh;
+  background-color: #121212;
 }
 
-.info{
-  text-align: right;
-  margin: 10px 20px 0 0;
+.city{
+  width: 198px;
+  height: 242px;
+  background: #121212;
+  border-radius: 20px;
+  border: 1px solid #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #9f9f9f;
+  background: rgba( 255, 255, 255, 0.05 );
+  backdrop-filter: blur( 12.5px );
+  -webkit-backdrop-filter: blur( 12.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
-.ciudad, .temperatura{
-  margin: 0;
-  font-size: 25px;
-  font-weight: 700;
-}
-
-.datos{
+.top, .bottom{
   display: flex;
   flex-direction: row;
-  gap: 15px;
-  text-align: center;
-  font-weight: 600;
+  justify-content: space-between;
+  margin: 0 15px 0 15px;
+}
+
+.top{
+  margin-top: 10px;
+}
+
+.top span:nth-child(1){
+  color: #fff;
+}
+
+.bottom{
+  margin-bottom: 10px;
+}
+
+img{
+  width: 96px;
+  height: 98px;
 }
