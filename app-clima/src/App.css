@@ -1,10 +1,13 @@
 .contenedor{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vh;
   height: 100vh;
-  background-color: #121212;
+  background-color: #000;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .city{
@@ -18,11 +21,6 @@
   justify-content: space-between;
   font-size: 13px;
   color: #9f9f9f;
-  background: rgba( 255, 255, 255, 0.05 );
-  backdrop-filter: blur( 12.5px );
-  -webkit-backdrop-filter: blur( 12.5px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .top, .bottom{
@@ -44,7 +42,76 @@
   margin-bottom: 10px;
 }
 
-img{
+.contentimg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.img{
   width: 96px;
   height: 98px;
+}
+
+.d{
+  box-sizing: border-box;
+  width: 289px;
+  height: 160px;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(40px);
+  border-radius: 16px;
+}
+
+.b{
+  position: absolute;
+  width: 87px;
+  height: 20px;
+  left: 24px;
+  top: 30px;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.c{
+  position: absolute;
+  width: 95px;
+  height: 16px;
+  left: 24px;
+  top: 58px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.g{
+position: absolute;
+width: 68px;
+height: 48px;
+left: 24px;
+top: 86px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+color: #FFFFFF;
+}
+
+.l{
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  left: 163px;
+  top: calc(50% - 96px/2);
 }
