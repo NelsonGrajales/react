@@ -1,15 +1,46 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 
+const randomPass = (length, options) => {
+  const { isUppercase, isLowercase, isNumber, isSymbols } = options;
+  let characters = '';
+  let result = '';
+
+  if (isUppercase) {
+    characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  }
+  if (isLowercase) {
+    characters += 'abcdefghijklmnopqrstuvwxyz';
+  }
+  if (isNumber) {
+    characters += '0123456789';
+  }
+  if (isSymbols) {
+    characters += '!@#$%^&*()_+[]{}|;:,.<>?';
+  }
+
+  const charLength = characters.length;
+  if (charLength === 0) {
+    return '';
+  }
+
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charLength));
+  }
+
+  return result;
+};
+
 function App() {
-  const [isUppercase, setIsUppercase] = useState(false)
+  const [isUppercase, setIsUppercase] = useState(true)
   const [isLowercase, setIsLowercase] = useState(false)
   const [isNumber, setIsNumber] = useState(false)
   const [isSymbols, setIsSymbols] = useState(false)
   const [isValue, setIsValue] = useState(10)
+  const [isPass, setIsPass] = useState(randomPass(isValue, { isUppercase, isLowercase, isNumber, isSymbols }))
 
   const handleUppercase = (event) => {
     setIsUppercase(event.target.checked)
@@ -27,11 +58,20 @@ function App() {
   const handleValue = (event) => {
     setIsValue(event.target.value)
   }
+
+
+  useEffect(() => {
+    const options = { isUppercase, isLowercase, isNumber, isSymbols };
+    const result = randomPass(isValue, options);
+    setIsPass(result);
+
+
+  }, [isLowercase, isNumber, isSymbols, isUppercase, isValue])
   return (
     <div>
       <h2>Password Generator</h2>
       <header className='mb-4 bg-zinc-800 flex justify-between items-center'>
-        <span className='ml-8 text-xl font-bold text-slate-700'>ASDFSFSDSF</span>
+        <span className='ml-8 text-xl font-bold text-slate-700'>{isPass}</span>
         <button className='bg-transparent'>
           <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-copy" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
