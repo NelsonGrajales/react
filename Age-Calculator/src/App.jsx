@@ -9,11 +9,8 @@ function App() {
   const handleClick = (anio, mes, dia) => {
     const fechaActual = new Date();
     const fechaBusc = new Date(anio, mes, dia)
-
     const diferencia = Math.abs(fechaActual - fechaBusc)
     const dias = Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferenciaMilisegundos % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferenciaMilisegundos % (1000 * 60 * 60)) / (1000 * 60));
     setIsDay(dias)
     setIsYear()
   }
