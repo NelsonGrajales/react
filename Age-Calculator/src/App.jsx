@@ -8,11 +8,9 @@ function App() {
 
   const handleClick = (anio, mes, dia) => {
     const fechaActual = new Date();
-    const fechaBusc = new Date(anio, mes, dia)
-    const diferencia = Math.abs(fechaActual - fechaBusc)
-    const dias = Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24));
-    setIsDay(dias)
-    setIsYear()
+    const usuario = new Date(isDay, isMonth - 1, isYear)
+    console.log(fechaActual)
+    console.log(usuario)
   }
 
   return (
@@ -20,23 +18,26 @@ function App() {
       <form action="/submit" method="post">
         <div>
           <label for="nombre">Day</label>
-          <input type="number" id="nombre" name="nombre" required />
+          <input type="number" id="nombre" name="nombre" required value={isDay}
+            onChange={(e) => setIsDay(e.target.value)} />
         </div>
         <div>
           <label for="email">Month</label>
-          <input type="month" id="email" name="month" required />
+          <input type="month" id="email" name="month" required value={isMonth}
+            onChange={(e) => setIsMonth(e.target.value)} />
         </div>
         <div>
           <label for="pregunta">Year</label>
-          <input type="number" id="pregunta" name="pregunta" required />
+          <input type="number" id="pregunta" name="pregunta" required value={isYear}
+            onChange={(e) => setIsYear(e.target.value)} />
         </div>
-        <button onClick={handleClick} className='submit' type="submit"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-narrow-down" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 5l0 14" />
-          <path d="M16 15l-4 4" />
-          <path d="M8 15l4 4" />
-        </svg></button>
       </form>
+      <button onClick={handleClick}><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-narrow-down" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 5l0 14" />
+        <path d="M16 15l-4 4" />
+        <path d="M8 15l4 4" />
+      </svg></button>
 
       <div>
         <div>
